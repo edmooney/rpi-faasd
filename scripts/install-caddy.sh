@@ -3,7 +3,7 @@ set -e
 
 CADDY_ARCH=armv6
 
-if [[ $PACKER_BUILD_NAME == *"arm64"* ]]; then
+if [[ $IMAGE_TYPE == *"64"* ]]; then
   CADDY_ARCH=arm64
 fi
 

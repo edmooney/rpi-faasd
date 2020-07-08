@@ -3,4 +3,5 @@ output-arm-image
 dist
 images
 packer_cache
+staging
 *.log

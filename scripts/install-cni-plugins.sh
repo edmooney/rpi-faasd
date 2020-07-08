@@ -5,7 +5,7 @@ CNI_VERSION=v0.8.6
 
 CNI_ARCH=arm
 
-if [[ $PACKER_BUILD_NAME == *"arm64"* ]]; then
+if [[ $IMAGE_TYPE == *"64"* ]]; then
   CNI_ARCH=arm64
 fi
 

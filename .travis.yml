@@ -2,17 +2,19 @@ language: minimal
 dist: focal
 
 env:
-  - TARGET=raspios
-  - TARGET=ubuntu/rpi-faasd.img
-  - TARGET=ubuntu/rpi-faasd-inlets-oss.img
-  - TARGET=ubuntu/rpi-faasd-inlets-pro.img
+  - SOURCE=raspios32 BUILD=rpi-faasd
+  - SOURCE=raspios32 BUILD=rpi-faasd-inlets-oss
+  - SOURCE=raspios32 BUILD=rpi-faasd-inlets-pro
+  - SOURCE=ubuntu64 BUILD=rpi-faasd
+  - SOURCE=ubuntu64 BUILD=rpi-faasd-inlets-oss
+  - SOURCE=ubuntu64 BUILD=rpi-faasd-inlets-pro
 
 before_install:
   - sudo unlink /usr/local/bin/packer
   - ci/provision.sh
 
 script:
-  - sudo make $TARGET
+  - sudo ./build.sh $SOURCE $BUILD
 
 before_deploy:
   - cd dist && sudo ../ci/hashgen.sh && cd ..

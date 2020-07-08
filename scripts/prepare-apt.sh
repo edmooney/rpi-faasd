@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [[ $PACKER_BUILD_NAME == *"raspios"* ]]; then
+if [[ $IMAGE_TYPE == *"raspios"* ]]; then
     cp /etc/apt/sources.list /etc/apt/sources.list_orig
 
     if [ ! -z "$PREFERRED_MIRROR" ]; then
