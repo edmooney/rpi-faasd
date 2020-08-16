@@ -13,7 +13,8 @@
       "output_filename": "images/rpi-faasd-inlets-pro-raspios-armhf.img",
       "iso_url": "https://github.com/jsiebens/rpi-cloud-init/releases/download/v0.2/rpi-cloud-init.zip",
       "iso_checksum_url": "https://github.com/jsiebens/rpi-cloud-init/releases/download/v0.2/rpi-cloud-init.zip.sha256",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "last_partition_extra_size": 256000000
     }
   ],
   "provisioners": [

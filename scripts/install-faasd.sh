@@ -31,6 +31,19 @@ git clone https://github.com/openfaas/faasd && git -C faasd checkout ${FAASD_VER
 
 cd faasd && /usr/local/bin/faasd install
 
+ARCH_SUFFIX="-${FAASD_ARCH}"
+if [[ $PACKER_BUILD_NAME == *"ubuntu"* ]]; then
+  /usr/bin/containerd &
+else
+  /usr/local/bin/containerd &
+fi
+
+for img in `grep image docker-compose.yaml | grep -v queue | sed -e 's/^.*image\: //g'`;
+do
+    ctr image pull $(eval echo $img)
+done
+kill %1
+
 cd /tmp
 rm -rf /tmp/faasd-installation
 
